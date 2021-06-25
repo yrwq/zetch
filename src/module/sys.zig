@@ -1,4 +1,9 @@
-pub usingnamespace @import("../lua.zig");
+usingnamespace @cImport({
+    @cInclude("lua.h");
+    @cInclude("lauxlib.h");
+    @cInclude("lualib.h");
+});
+
 const panic = @import("mod.zig").panic;
 
 const c = @cImport({
@@ -21,5 +26,4 @@ pub const Sys = struct {
             panic("error: failed to get username from $USER\n");
         return 1;
     }
-
 };
