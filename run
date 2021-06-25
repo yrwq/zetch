@@ -1,4 +1,0 @@
-#!/bin/sh
-
-cp zig-out/lib/libzetch.so .
-zig-out/bin/zetch init.lua
