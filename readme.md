@@ -16,26 +16,26 @@ Zetch provides a:
 
 Locally to `$HOME/.local/bin`
 
-```zsh
+```bash
 zig build -Drelease-safe --prefix ~/.local
 ```
 
 System wide to `/usr/bin`
 
-```zsh
+```bash
 zig build -Drelease-safe --prefix /usr
 ```
 
 ### Nix
 
 * Flake
-    ```zsh
+    ```bash
     nix develop
     ```
 
 * Non-Flake
 
-    ```zsh
+    ```bash
     sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
     sudo nix-channel --update
     nix-shell non-flake.nix
