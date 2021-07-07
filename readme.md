@@ -25,18 +25,3 @@ System wide to `/usr/bin`
 ```bash
 zig build -Drelease-safe --prefix /usr
 ```
-
-### Nix
-
-* Flake
-    ```bash
-    nix develop
-    ```
-
-* Non-Flake
-
-    ```bash
-    sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
-    sudo nix-channel --update
-    nix-shell non-flake.nix
-    ```
