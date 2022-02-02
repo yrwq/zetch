@@ -1,17 +1,12 @@
-const builder = @import("std").build.Builder;
+const std = @import("std");
 
-pub fn build(b: *builder) void {
+pub fn build(b: *std.build.Builder) void {
+    const target = b.standardTargetOptions(.{});
     const mode = b.standardReleaseOptions();
-    const lib = b.addSharedLibrary("zetch", "src/zetch.zig", b.version(0, 0, 1));
-
-    lib.setBuildMode(mode);
-    lib.linkSystemLibrary("c");
-    lib.linkSystemLibrary("lua5.4");
-    lib.install();
 
     const exe = b.addExecutable("zetch", "src/main.zig");
+    exe.setTarget(target);
     exe.setBuildMode(mode);
-    exe.linkSystemLibrary("c");
-    exe.linkSystemLibrary("lua5.4");
+    exe.linkLibC();
     exe.install();
 }
