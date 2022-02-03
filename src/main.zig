@@ -1,9 +1,9 @@
 const std = @import("std");
+const print = std.debug.print;
+const fetch = @import("fetch.zig");
 
 pub fn main() anyerror!void {
-    std.log.info("All your codebase are belong to us.", .{});
-}
-
-test "basic test" {
-    try std.testing.expectEqual(10, 3 + 7);
+    const alloc = std.heap.c_allocator;
+    const os = fetch.os.get(alloc);
+    print("{s}\n", .{os});
 }
